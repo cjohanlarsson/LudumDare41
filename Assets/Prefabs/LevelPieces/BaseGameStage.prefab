@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 4032293028793318}
   - component: {fileID: 33601905366478156}
   - component: {fileID: 23392044914090358}
+  - component: {fileID: 64855879227567112}
   m_Layer: 0
   m_Name: grass_02
   m_TagString: Untagged
@@ -455,8 +456,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1321587546278172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -7.4, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4973514136264108}
   m_RootOrder: 2
@@ -519,14 +520,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1543583517250932}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: -7.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4032293028793318}
   m_Father: {fileID: 4973514136264108}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4295946300212716
 Transform:
   m_ObjectHideFlags: 1
@@ -547,7 +548,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880213086823048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7.7, z: -19.5}
+  m_LocalPosition: {x: 0, y: -22.61, z: -19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4542671634275984}
@@ -735,7 +736,7 @@ Camera:
   far clip plane: 1000
   field of view: 46
   orthographic: 1
-  orthographic size: 40
+  orthographic size: 8.41
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1256,6 +1257,20 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!64 &64855879227567112
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144284769148334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 318d33c7de967524b8bcff3493ebd251, type: 3}
 --- !u!65 &65070689217832724
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1598,7 +1613,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de633d07c2684088b715f2d51ce2649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segments: []
+  segments:
+  - buildingPrefab: {fileID: 114349906768359756, guid: d6e4399f0accf2644b8dce312799c278,
+      type: 2}
+    goal: {fileID: 0}
 --- !u!114 &114837144239698546
 MonoBehaviour:
   m_ObjectHideFlags: 1
