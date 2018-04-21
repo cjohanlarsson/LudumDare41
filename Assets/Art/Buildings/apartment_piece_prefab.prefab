@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 65863588138365768}
   - component: {fileID: 54197981915861628}
   m_Layer: 0
-  m_Name: apartment_piece
+  m_Name: apartment_piece_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1914946994693940}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a2faa9bdd93d75c4b9cfb625cdf0b13a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
