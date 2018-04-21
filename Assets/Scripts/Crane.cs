@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Crane : MonoBehaviour 
 {
+	public static Crane current;
+
+	public enum MouseControl
+	{
+		Absolute,
+		Relative
+	}
+
 	[SerializeField] Rigidbody craneArm;
 	[SerializeField] float craneMaxSpeed;
 	[SerializeField] float craneSmoothTime;
@@ -14,24 +22,47 @@ public class Crane : MonoBehaviour
 	[SerializeField] float craneYDeccel = 6;
 	[SerializeField] float craneMouseOffset = 5f;
 
-	[SerializeField] HingeJoint hinge;
+	[SerializeField] Rigidbody buildingAttachment;
+
+	[SerializeField] MouseControl mouseControlMode;
+	//[SerializeField] float relativeMouseSpeed = 1f;
+
+	[SerializeField] Transform debugTargetCube;
 
 	Vector3 craneArmTargetPos;
 	Vector3 craneArmVelocity;
 
+	private Building attachedBuilding;
+	public Building AttachedBuilding { get { return this.attachedBuilding; } }
 	float direction = 0;
+
+	void Awake()
+	{
+		current = this;
+	}
 
 	void Update()
 	{
-		var ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-		float enter;
-		Vector3 targetPos;
-		if( (new Plane(Vector3.up, 0)).Raycast( ray, out enter) )
+		
+
+		if(mouseControlMode == MouseControl.Absolute)
 		{
-			targetPos = ray.GetPoint(enter);
-			this.craneArmTargetPos.x = targetPos.x;
-			this.craneArmTargetPos.z = targetPos.z - craneMouseOffset;
+			Vector3 targetPos;
+			var ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+			float enter;
+			if( (new Plane(Vector3.up, 0)).Raycast( ray, out enter) )
+			{
+				targetPos = ray.GetPoint(enter);
+				this.craneArmTargetPos.x = targetPos.x;
+				this.craneArmTargetPos.z = targetPos.z - craneMouseOffset;
+			}
 		}
+		/*else
+		{
+			var move = new Vector3( Input.GetAxis("Mouse X") , 0, Input.GetAxis("Mouse Y"));
+			this.craneArmTargetPos += move * relativeMouseSpeed;
+		}*/
+
 
 		if(Input.GetMouseButton(0))
 		{
@@ -48,6 +79,8 @@ public class Crane : MonoBehaviour
 		direction = Mathf.Clamp(direction,-1,1);
 
 		craneArmTargetPos.y = Mathf.Clamp( craneArmTargetPos.y + (direction * Time.deltaTime * craneYSpeed) ,craneMinY, craneMaxY);
+
+		debugTargetCube.transform.position = craneArmTargetPos;
 	}
 
 	// Update is called once per frame
@@ -59,10 +92,18 @@ public class Crane : MonoBehaviour
 
 		
 		this.craneArm.transform.position = craneArmCurrPos;
-		if(Input.GetKey(KeyCode.Space))
+		if(Input.GetKey(KeyCode.Space) && attachedBuilding != null)
 		{
-			GameObject.Destroy(this.hinge);
+			GameObject.Destroy(attachedBuilding.joint);
+			attachedBuilding = null;
 		}
+	}
+
+	public void AttachBuilding(Building building)
+	{
+		attachedBuilding = building;
+		building.transform.position = buildingAttachment.transform.position;
+		building.joint.connectedBody = buildingAttachment;
 	}
 
 	/*
