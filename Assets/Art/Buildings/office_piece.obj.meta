@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 9aea4d48308f55443b3aaff2e2b082b3
-timeCreated: 1524337529
+guid: 751ed5db77830ab43b98da9cdb8ef42a
+timeCreated: 1524339112
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: newtext
+    100000: office_piece
     100002: //RootNode
-    400000: newtext
+    400000: office_piece
     400002: //RootNode
     2100000: palette
-    2300000: newtext
-    3300000: newtext
-    4300000: newtext
+    2300000: office_piece
+    3300000: office_piece
+    4300000: office_piece
   externalObjects: {}
   materials:
     importMaterials: 1
