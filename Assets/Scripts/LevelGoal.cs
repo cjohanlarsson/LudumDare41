@@ -5,12 +5,12 @@ using UnityEngine;
 public class LevelGoal : MonoBehaviour 
 {
 	[SerializeField] SpriteRenderer goalIcon;
-	[SerializeField] string requiredBuildingGameId;
 	[SerializeField] float requiredDistToGoal = 0.5f;
 
+	public Building TargetBuilding { get; set; }
 	Building attachedBuilding;
 
-	bool IsAttachedToBuilding
+	public bool IsSuccess
 	{
 		get
 		{
@@ -23,7 +23,7 @@ public class LevelGoal : MonoBehaviour
 
 	void Update()
 	{
-		if(IsAttachedToBuilding  )
+		if(IsSuccess  )
 		{
 			goalIcon.color = Color.green;
 		}
@@ -37,7 +37,7 @@ public class LevelGoal : MonoBehaviour
 	{
 		Debug.Log("entered" + c.gameObject.name.ToString());
 		var b = c.gameObject.GetComponent<Building>();
-		if(b != null && requiredBuildingGameId == b.BuildingGameId)
+		if(b != null && TargetBuilding == b)
 		{
 			Debug.Log("building found!");
 			attachedBuilding = b;

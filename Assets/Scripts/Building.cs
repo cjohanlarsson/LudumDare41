@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Building : MonoBehaviour 
 {
-	[SerializeField] private string buildingGameId;
 	[SerializeField] private Transform basePosition;
+	public FixedJoint joint;
 
-	public string BuildingGameId
+	public bool IsAttached
 	{
-		get { return this.buildingGameId; }
+		get
+		{
+			return Crane.current.AttachedBuilding == this;
+		}
 	}
+
 	public Vector3 BasePosition
 	{
 		get
