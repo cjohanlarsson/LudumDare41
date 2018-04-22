@@ -69,14 +69,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1791643910091636}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1, y: -5.56, z: 2.97}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 1.42, y: -1.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4318142475245784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &23841695938271760
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -303,8 +303,6 @@ MonoBehaviour:
   startTime: 0
   moveDuration: 5
   readyForNewTarget: 1
-  cam: {fileID: 0}
-  agent: {fileID: 195571675049483088}
 --- !u!136 &136316938710870696
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -314,7 +312,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Height: 2.2527525
   m_Direction: 1
   m_Center: {x: 0, y: 1.0991293, z: 0}
@@ -339,7 +337,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1791643910091636}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 99
@@ -349,6 +347,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.7
-  m_BaseOffset: 0
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

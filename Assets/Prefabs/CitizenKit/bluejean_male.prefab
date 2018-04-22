@@ -56,14 +56,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1122984614943448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6, y: -5.591, z: 2.64}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -2.42, y: -1.21, z: 0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4876875713697858}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4876875713697858
 Transform:
   m_ObjectHideFlags: 1
@@ -142,7 +142,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -303,8 +303,6 @@ MonoBehaviour:
   startTime: 0
   moveDuration: 5
   readyForNewTarget: 1
-  cam: {fileID: 0}
-  agent: {fileID: 195736192173978118}
 --- !u!136 &136250582586912300
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -327,10 +325,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.093931
+  m_Radius: 0.35
+  m_Height: 2.0884378
   m_Direction: 1
-  m_Center: {x: 0, y: 1.0030345, z: 0}
+  m_Center: {x: -0, y: 1.005781, z: 0}
 --- !u!195 &195736192173978118
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -339,7 +337,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1122984614943448}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -349,6 +347,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.7
-  m_BaseOffset: 0
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

@@ -26,7 +26,7 @@ public class CitizenDeath : MonoBehaviour {
 	{
 		if(timeToDie)
         {
-            Destroy(transform.root.gameObject);
+            Destroy(transform.parent.gameObject);
         }
 	}
 }

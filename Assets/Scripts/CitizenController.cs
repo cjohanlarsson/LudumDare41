@@ -20,14 +20,13 @@ public class CitizenController : MonoBehaviour {
     float randomX;
     float randomZ;
 
-    public Camera cam;
-    public NavMeshAgent agent;
+    private NavMeshAgent agent;
 
     void Start()
     {
         startTime = Time.time;
         model = transform.GetChild(0);
-
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
