@@ -9,7 +9,8 @@ public class Crane : MonoBehaviour
 	public enum MouseControl
 	{
 		Absolute,
-		Relative
+		Relative,
+		Deltas
 	}
 
 	[SerializeField] Rigidbody craneArm;
@@ -25,12 +26,13 @@ public class Crane : MonoBehaviour
 	[SerializeField] Rigidbody buildingAttachment;
 
 	[SerializeField] MouseControl mouseControlMode;
-	//[SerializeField] float relativeMouseSpeed = 1f;
+	[SerializeField] float relativeMouseSpeed = 1f;
 
 	[SerializeField] Transform debugTargetCube;
 
 	Vector3 craneArmTargetPos;
 	Vector3 craneArmVelocity;
+	Vector3 prevMousePos;
 
 	private Building attachedBuilding;
 	public Building AttachedBuilding { get { return this.attachedBuilding; } }
@@ -41,34 +43,64 @@ public class Crane : MonoBehaviour
 		current = this;
 	}
 
+	void Start()
+	{
+		prevMousePos = Input.mousePosition;
+		this.craneArmTargetPos = this.craneArm.transform.position;
+	}
+
+	bool GetPosition( Vector3 screenPos, ref Vector3 pos )
+	{
+		var ray = Camera.main.ScreenPointToRay( screenPos );
+		float enter;
+		if( (new Plane(Vector3.up, 0)).Raycast( ray, out enter) )
+		{
+			pos = ray.GetPoint(enter);
+			return true;
+		}
+		return false;
+	}
+
 	void Update()
 	{
-		
+		var view = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+ 		var mouseInside = !(view.x < 0 || view.x > 1 || view.y < 0 || view.y > 1);
 
 		if(mouseControlMode == MouseControl.Absolute)
 		{
-			Vector3 targetPos;
-			var ray = Camera.main.ScreenPointToRay( Input.mousePosition );
-			float enter;
-			if( (new Plane(Vector3.up, 0)).Raycast( ray, out enter) )
+			Vector3 targetPos = Vector3.zero;
+			if(GetPosition( Input.mousePosition, ref targetPos))
 			{
-				targetPos = ray.GetPoint(enter);
 				this.craneArmTargetPos.x = targetPos.x;
 				this.craneArmTargetPos.z = targetPos.z - craneMouseOffset;
 			}
 		}
-		/*else
+		else if(mouseControlMode == MouseControl.Deltas)
 		{
-			var move = new Vector3( Input.GetAxis("Mouse X") , 0, Input.GetAxis("Mouse Y"));
-			this.craneArmTargetPos += move * relativeMouseSpeed;
-		}*/
+			var delta = new Vector3( Input.GetAxis("Mouse X") , 0, Input.GetAxis("Mouse Y"));
+			delta.y = 0f;
+			this.craneArmTargetPos += delta * relativeMouseSpeed;
+		}
+		else
+		{
+			Vector3 currPos = Vector3.zero; 
+			Vector3 prevPos = Vector3.zero;
+			if(GetPosition(Input.mousePosition, ref currPos) && GetPosition(prevMousePos, ref prevPos))
+			{
+				currPos.y = prevPos.y = 0;
+				this.craneArmTargetPos += (currPos - prevPos);
+			}
+			prevMousePos = Input.mousePosition;
+
+			//this.craneArmTargetPos += move * relativeMouseSpeed;
+		}
 
 
-		if(Input.GetMouseButton(0))
+		if(Input.GetKey(KeyCode.Q) || (mouseInside && Input.GetMouseButton(0)))
 		{
 			direction += Time.deltaTime * craneYAccel;
 		}
-		else if(Input.GetMouseButton(1))
+		else if(Input.GetKey(KeyCode.A) || (mouseInside &&  Input.GetMouseButton(1)))
 		{
 			direction -= Time.deltaTime * craneYAccel;
 		}
@@ -80,6 +112,13 @@ public class Crane : MonoBehaviour
 
 		craneArmTargetPos.y = Mathf.Clamp( craneArmTargetPos.y + (direction * Time.deltaTime * craneYSpeed) ,craneMinY, craneMaxY);
 
+		if(Level.current != null)
+		{
+			var min = Level.current.GetMinBounds();
+			var max = Level.current.GetMaxBounds();
+			craneArmTargetPos.x = Mathf.Clamp( craneArmTargetPos.x, min.x, max.x );
+			craneArmTargetPos.z = Mathf.Clamp( craneArmTargetPos.z, min.z, max.z );
+		}
 		debugTargetCube.transform.position = craneArmTargetPos;
 	}
 
