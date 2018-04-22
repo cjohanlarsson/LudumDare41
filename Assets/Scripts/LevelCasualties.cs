@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelCasualties : MonoBehaviour {
+public class LevelCasualties : MonoBehaviour 
+{
+	public static LevelCasualties current;
 
     private int peopleKilled;
     [SerializeField]
@@ -11,6 +13,19 @@ public class LevelCasualties : MonoBehaviour {
     float casualtyRisk;
 
     public Text casualties;
+  
+    public bool TooManyCasualties
+    {
+    	get { return this.peopleKilled > this.maximumKillable; }
+    }
+
+    void Awake() {
+		current = this;
+    }
+
+    void OnDestroy() {
+		current = null;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +35,14 @@ public class LevelCasualties : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(Level.current.PeopleKilled);
-        peopleKilled = Level.current.PeopleKilled;
-        casualties.text = "Lawyers have settled "+ peopleKilled+" out of "+maximumKillable+" acceptable casualties";
-        casualtyRisk = (float)peopleKilled/maximumKillable;
-        casualties.color = new Color(casualtyRisk, 0f, 0f);
+		var pk = Level.current.PeopleKilled;
+		if(pk != peopleKilled)
+		{
+	        peopleKilled = pk;
+	        casualties.text = "Lawyers have settled "+ peopleKilled+" out of "+maximumKillable+" acceptable casualties";
+	        casualtyRisk = (float)peopleKilled/maximumKillable;
+	        casualties.color = new Color(casualtyRisk, 0f, 0f);
+        }
         //Debug.Log(casualtyRisk);
 	}
 }

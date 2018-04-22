@@ -235,14 +235,32 @@ public class Crane : MonoBehaviour
 		attachedBuilding = building;
 		building.transform.position = buildingAttachment.transform.position;
 		building.joint.connectedBody = buildingAttachment;
+		this.lastDetachedAt = -1f;
 	}
 
 	public void DetachBuilding(Building building)
 	{
-		if(attachedBuilding == building)
+		if(attachedBuilding != null && attachedBuilding == building)
 		{
+			lastDetachedAt = Time.time;
 			GameObject.Destroy(attachedBuilding.joint);
 			attachedBuilding = null;
+		}
+	}
+
+	private float lastDetachedAt;
+	public float TimeSinceDetached
+	{
+		get
+		{
+			if(lastDetachedAt < 0f)
+			{
+				return -1f;
+			}
+			else
+			{
+				return Mathf.Max(0f, Time.time - lastDetachedAt);
+			}
 		}
 	}
 
