@@ -12,8 +12,25 @@ public class BuildingHit : MonoBehaviour {
     {
         if(!destroyed && collision.impulse.magnitude > BREAK_THRESHOLD)
         {
-            Level.current.RegisterBuildingDestroyed();
-            fireChild.SetActive(true);
+            DestroyBuilding();
+            Level.current.audioMan.PlayCrash();
         }
+    }
+
+    //Check for sinking
+    private void Update()
+    {
+        if(!destroyed && transform.position.y < 10)
+        {
+            DestroyBuilding();
+            Level.current.audioMan.PlaySplash();
+        }
+    }
+
+    void DestroyBuilding()
+    {
+        destroyed = true;
+        Level.current.RegisterBuildingDestroyed();
+        fireChild.SetActive(true);
     }
 }

@@ -63,6 +63,8 @@ public class Crane : MonoBehaviour
 	float direction = 0;
 	float craneAngle = 0f;
 
+    private const float MOVE_DELTA_SOUND_THRESHOLD = 0f;
+
 	bool craneReady = false;
 
 	void Awake()
@@ -111,7 +113,12 @@ public class Crane : MonoBehaviour
 			var delta = new Vector3( Input.GetAxis("Mouse X") , 0, Input.GetAxis("Mouse Y"));
 			delta.y = 0f;
 			this.craneArmTargetPos += delta * relativeMouseSpeed;
-		}
+
+            if (delta.magnitude * relativeMouseSpeed > MOVE_DELTA_SOUND_THRESHOLD)
+                Level.current.audioMan.ToggleCraneMoveSound(true);
+            else
+                Level.current.audioMan.ToggleCraneMoveSound(false);
+        }
 		else if(mouseControlMode == MouseControl.Relative)
 		{
 			Vector3 currPos = Vector3.zero; 
@@ -130,15 +137,18 @@ public class Crane : MonoBehaviour
 		if(Input.GetKey(KeyCode.Q) || (mouseInside && Input.GetMouseButton(0)))
 		{
 			direction += Time.deltaTime * craneYAccel;
+            Level.current.audioMan.ToggleCraneLowerSound(true);
 		}
 		else if(Input.GetKey(KeyCode.A) || (mouseInside &&  Input.GetMouseButton(1)))
 		{
 			direction -= Time.deltaTime * craneYAccel;
-		}
+            Level.current.audioMan.ToggleCraneLowerSound(true);
+        }
 		else
 		{
 			direction = Mathf.MoveTowards( direction, 0, Time.deltaTime * craneYDeccel );
-		}
+            Level.current.audioMan.ToggleCraneLowerSound(false);
+        }
 		direction = Mathf.Clamp(direction,-1,1);
 
 		craneArmTargetPos.y = Mathf.Clamp( craneArmTargetPos.y + (direction * Time.deltaTime * craneYSpeed) ,craneMinY, craneMaxY);
@@ -245,6 +255,8 @@ public class Crane : MonoBehaviour
 			lastDetachedAt = Time.time;
 			GameObject.Destroy(attachedBuilding.joint);
 			attachedBuilding = null;
+
+            Level.current.audioMan.PlayCraneLetGo();
 		}
 	}
 

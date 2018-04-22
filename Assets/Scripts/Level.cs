@@ -28,6 +28,7 @@ public class Level : MonoBehaviour
 	[SerializeField] float boundsMaxZ;
 	[SerializeField] float boundsMinX;
 	[SerializeField] float boundsMaxX;
+    public AudioManager audioMan; //Other classes trigger sfx through this link
 
 	public Vector3 GetMinBounds()
 	{
@@ -150,4 +151,5 @@ public class Level : MonoBehaviour
     {
         peopleKilled++;
     }
+    
 }

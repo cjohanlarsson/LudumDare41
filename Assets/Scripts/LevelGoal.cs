@@ -10,6 +10,8 @@ public class LevelGoal : MonoBehaviour
 	public Building TargetBuilding { get; set; }
 	Building attachedBuilding;
 
+    private bool wasSuccess = false; //Used to catch when success changes to play sound
+
 	public bool IsSuccess
 	{
 		get
@@ -23,14 +25,20 @@ public class LevelGoal : MonoBehaviour
 
 	void Update()
 	{
-		if(IsSuccess  )
+        bool successNow = IsSuccess;
+
+		if(successNow  )
 		{
 			goalIcon.color = Color.green;
+            if (successNow != wasSuccess)
+                Level.current.audioMan.PlayGoodLanding();
 		}
 		else
 		{
 			goalIcon.color = Color.red;
 		}
+
+        wasSuccess = successNow;
 	}
 
 	void OnTriggerEnter(Collider c)
