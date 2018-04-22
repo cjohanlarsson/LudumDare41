@@ -16,11 +16,11 @@ public class BuildingHit : MonoBehaviour {
             Level.current.audioMan.PlayCrash();
         }
     }
-
+    
     //Check for sinking
     private void Update()
     {
-        if(!destroyed && transform.position.y < 10)
+        if(!destroyed && transform.position.y < -10)
         {
             DestroyBuilding();
             Level.current.audioMan.PlaySplash();
