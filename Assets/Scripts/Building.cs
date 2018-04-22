@@ -22,4 +22,5 @@ public class Building : MonoBehaviour
 			return basePosition.position;
 		}
 	}
+
 }
