@@ -9,18 +9,28 @@ public class UI : MonoBehaviour
 {
 	[SerializeField] private Button resetBtn;
 	[SerializeField] private GameObject winScreen;
+    [SerializeField] private Button nextLvlBtn;
 
-	void Awake()
-	{
-		if(resetBtn != null)
-		{
-			resetBtn.onClick.AddListener( () => {
-				SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
-			} );
-		}
+    void Awake()
+    {
+        Debug.Log("We wake up");
+        if (resetBtn != null)
+        {
+            resetBtn.onClick.AddListener(() => {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            });
+        }
 
-
+        if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
+        {
+            nextLvlBtn.gameObject.SetActive(false);
+        }
 	}
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
 	void Update()
 	{
