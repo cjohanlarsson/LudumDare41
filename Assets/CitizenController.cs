@@ -61,7 +61,10 @@ public class CitizenController : MonoBehaviour {
         frozenWithFear = true;
         GetComponent<AudioSource>().Play();
         Vector3 currentLocation = transform.position;
-        agent.SetDestination(currentLocation);
+        if (this.gameObject != null)
+        {
+            agent.SetDestination(currentLocation);
+        }
         model.Rotate(0, 0, -30);
 	}
 
