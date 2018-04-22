@@ -48,6 +48,12 @@ public class Level : MonoBehaviour
 
 	public State CurrentState { get; set; }
 
+    public int PeopleKilled {
+        get {
+            return peopleKilled + buildingsDestroyed*20;
+        }
+    }
+
 	void Awake()
 	{
 		current = this;

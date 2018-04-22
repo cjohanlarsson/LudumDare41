@@ -137,7 +137,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 6.788269
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -314,7 +314,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 5.000001
+  m_Radius: 3
   m_Height: 28
   m_Direction: 1
   m_Center: {x: 1.0000002, y: 14, z: 0}
@@ -327,10 +327,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 5
-  m_Height: 47.780983
+  m_Radius: 3
+  m_Height: 72.90004
   m_Direction: 1
-  m_Center: {x: 0, y: 24.197079, z: 0}
+  m_Center: {x: 0, y: 36.756607, z: 0}
 --- !u!195 &195516178233708398
 NavMeshAgent:
   m_ObjectHideFlags: 1
