@@ -11,6 +11,7 @@ public class BuildingHit : MonoBehaviour {
     {
         if(!destroyed && collision.impulse.magnitude > BREAK_THRESHOLD)
         {
+            Level.current.RegisterBuildingDestroyed();
             Debug.Log("Trigger Destroy");
         }
     }

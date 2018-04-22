@@ -41,6 +41,9 @@ public class Level : MonoBehaviour
 	private Building currentBuilding;
 	private int currentIndex = 0;
 
+    private int buildingsDestroyed = 0;
+    private int peopleKilled = 0;
+
 	public State CurrentState { get; set; }
 
 	void Awake()
@@ -82,4 +85,14 @@ public class Level : MonoBehaviour
 
 		CurrentState = State.Won;
 	}
+
+    public void RegisterBuildingDestroyed()
+    {
+        buildingsDestroyed++;
+    }
+
+    public void RegisterPersonKilled()
+    {
+        peopleKilled++;
+    }
 }
