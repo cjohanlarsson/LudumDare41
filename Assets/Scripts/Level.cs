@@ -61,6 +61,10 @@ public class Level : MonoBehaviour
 		HideGoals();
 	}
 
+	void OnDestroy() {
+		current = null;
+    }
+
 	void ResetCrane()
 	{
 		if(Crane.current != null)
@@ -89,7 +93,11 @@ public class Level : MonoBehaviour
 
 		while(CurrentState == State.InProgress)
 		{
-			if(currentGoal == null)
+			if(LevelCasualties.current != null && LevelCasualties.current.TooManyCasualties)
+			{
+				CurrentState = State.Lost;
+			}
+			else if(currentGoal == null)
 			{
 				
 				var segment = segments[currentIndex];
