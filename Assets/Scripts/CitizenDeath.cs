@@ -6,6 +6,7 @@ public class CitizenDeath : MonoBehaviour {
 
     AudioSource squish;
     GameObject[] bloodSplatters;
+    bool timeToDie = false;
 
 	private void Start()
 	{
@@ -16,8 +17,16 @@ public class CitizenDeath : MonoBehaviour {
 	private void OnTriggerEnter(Collider other)
 	{
         squish.Play();
-        Destroy(transform.root.gameObject);
+        timeToDie = true;
         Level.current.RegisterPersonKilled();
         Instantiate(bloodSplatters[Random.Range(0,bloodSplatters.Length)], transform.position, Quaternion.identity);
     }
+
+	private void LateUpdate()
+	{
+		if(timeToDie)
+        {
+            Destroy(transform.root.gameObject);
+        }
+	}
 }

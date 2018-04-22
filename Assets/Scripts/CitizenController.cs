@@ -36,6 +36,7 @@ public class CitizenController : MonoBehaviour {
         if(readyForNewTarget & !frozenWithFear)
         {
             readyForNewTarget = false;
+            agent.isStopped = false;
             startTime = Time.time;
             agent.SetDestination(NewTarget());
 
@@ -61,14 +62,10 @@ public class CitizenController : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-        frozenWithFear = true;
-        GetComponent<AudioSource>().Play();
-        Vector3 currentLocation = transform.position;
-        if (agent != null)
-        {
-            agent.SetDestination(currentLocation);
-        }
-        model.Rotate(0, 0, -25);
+            frozenWithFear = true;
+            GetComponent<AudioSource>().Play();
+            agent.isStopped = true;
+            model.Rotate(0, 0, -25);
 	}
 
 	private void OnTriggerExit(Collider other)
