@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalIcon: {fileID: 212270872774096434}
-  requiredBuildingGameId: building1
   requiredDistToGoal: 0.5
 --- !u!212 &212270872774096434
 SpriteRenderer:

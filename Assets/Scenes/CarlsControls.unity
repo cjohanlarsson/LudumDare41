@@ -452,6 +452,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114133576772262962, guid: 2b3abf5f192bd433294bc094d5b241a8,
+        type: 2}
+      propertyPath: mouseControlMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114133576772262962, guid: 2b3abf5f192bd433294bc094d5b241a8,
+        type: 2}
+      propertyPath: craneMouseOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114133576772262962, guid: 2b3abf5f192bd433294bc094d5b241a8,
+        type: 2}
+      propertyPath: relativeMouseSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
   m_IsPrefabParent: 0
@@ -1028,6 +1043,10 @@ MonoBehaviour:
   - buildingPrefab: {fileID: 114936746123132170, guid: fba9a0b5cddfb4f66b8b5ff490195aaa,
       type: 2}
     goal: {fileID: 1873358207}
+  boundsMinZ: -9
+  boundsMaxZ: 9
+  boundsMinX: -12
+  boundsMaxX: 12
 --- !u!4 &1435120769
 Transform:
   m_ObjectHideFlags: 0

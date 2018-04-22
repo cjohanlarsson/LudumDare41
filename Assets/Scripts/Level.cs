@@ -22,10 +22,27 @@ public class Level : MonoBehaviour
 	public static Level current;
 
 	[SerializeField] private List<Segment> segments;
+	[SerializeField] float boundsMinZ;
+	[SerializeField] float boundsMaxZ;
+	[SerializeField] float boundsMinX;
+	[SerializeField] float boundsMaxX;
+
+	public Vector3 GetMinBounds()
+	{
+		return new Vector3( boundsMinX, 0 , boundsMinZ );
+	}
+
+	public Vector3 GetMaxBounds()
+	{
+		return new Vector3( boundsMaxX, 0 , boundsMaxZ );
+	}
 
 	private LevelGoal currentGoal;
 	private Building currentBuilding;
 	private int currentIndex = 0;
+
+    private int buildingsDestroyed = 0;
+    private int peopleKilled = 0;
 
 	public State CurrentState { get; set; }
 
@@ -68,4 +85,14 @@ public class Level : MonoBehaviour
 
 		CurrentState = State.Won;
 	}
+
+    public void RegisterBuildingDestroyed()
+    {
+        buildingsDestroyed++;
+    }
+
+    public void RegisterPersonKilled()
+    {
+        peopleKilled++;
+    }
 }
