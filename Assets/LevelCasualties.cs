@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class LevelCasualties : MonoBehaviour {
 
-    [SerializeField]
     private int peopleKilled;
     [SerializeField]
     private int maximumKillable;
@@ -21,9 +20,10 @@ public class LevelCasualties : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(Level.current.PeopleKilled);
+        peopleKilled = Level.current.PeopleKilled;
         casualties.text = "Lawyers have settled "+ peopleKilled+" out of "+maximumKillable+" acceptable casualties";
         casualtyRisk = (float)peopleKilled/maximumKillable;
         casualties.color = new Color(casualtyRisk, 0f, 0f);
-        Debug.Log(casualtyRisk);
+        //Debug.Log(casualtyRisk);
 	}
 }

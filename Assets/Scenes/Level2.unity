@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.57482487, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -391,6 +391,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4909525754168230, guid: 102e6a0fa77f0c94daae655edc7dfa86,
     type: 2}
   m_PrefabInternal: {fileID: 233550101}
+--- !u!1 &355054654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 355054655}
+  m_Layer: 0
+  m_Name: CranePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &355054655
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355054654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0, z: -11.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1568400161}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &451878251
 Prefab:
   m_ObjectHideFlags: 0
@@ -490,7 +518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1817846589702896, guid: 3f50cd094c66d455eb8d17ff1d9a2f17, type: 2}
       propertyPath: m_Name
-      value: UI (1)
+      value: UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f50cd094c66d455eb8d17ff1d9a2f17, type: 2}
@@ -591,9 +619,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 842153074}
-  - {fileID: 451878252}
-  - {fileID: 1106365714}
   - {fileID: 1568400161}
+  - {fileID: 451878252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1328,6 +1355,12 @@ Prefab:
       propertyPath: requiredDistToGoal
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 212270872774096434, guid: edf1faaae9031e247b96c347b811c7c8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a510eabbe067f407a86ece226cb71093,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edf1faaae9031e247b96c347b811c7c8, type: 2}
   m_IsPrefabParent: 0
@@ -1337,11 +1370,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1101657720}
   m_Script: {fileID: 11500000, guid: 0607c6a5bbc764b3aa1d8f09af3ae97f, type: 3}
---- !u!4 &1106365714 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1796869637}
 --- !u!4 &1143319149 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4777672349842836, guid: becb17ae2eecbcb4f94d9c5fbf043864,
@@ -1932,6 +1960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de633d07c2684088b715f2d51ce2649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cranePrefab: {fileID: 114708526075628536, guid: 2b3abf5f192bd433294bc094d5b241a8,
+    type: 2}
+  craneStart: {fileID: 355054655}
   segments:
   - buildingPrefab: {fileID: 114349906768359756, guid: d6e4399f0accf2644b8dce312799c278,
       type: 2}
@@ -1971,8 +2002,9 @@ Transform:
   - {fileID: 2006927782}
   - {fileID: 707041353}
   - {fileID: 8423491}
+  - {fileID: 355054655}
   m_Father: {fileID: 489696401}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1587031889
 Prefab:
@@ -2161,48 +2193,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: becb17ae2eecbcb4f94d9c5fbf043864, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &1796869637
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 489696401}
-    m_Modifications:
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -11.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4443286389471770, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2b3abf5f192bd433294bc094d5b241a8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1833322405
 Prefab:
@@ -2690,6 +2680,12 @@ Prefab:
       propertyPath: m_Name
       value: LevelGoal_2
       objectReference: {fileID: 0}
+    - target: {fileID: 212270872774096434, guid: edf1faaae9031e247b96c347b811c7c8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a510eabbe067f407a86ece226cb71093,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edf1faaae9031e247b96c347b811c7c8, type: 2}
   m_IsPrefabParent: 0

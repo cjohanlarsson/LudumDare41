@@ -57,6 +57,7 @@ public class Level : MonoBehaviour
 	void Awake()
 	{
 		current = this;
+		HideGoals();
 	}
 
 	void ResetCrane()
@@ -67,6 +68,16 @@ public class Level : MonoBehaviour
 		}
 		Crane.current = GameObject.Instantiate( cranePrefab , craneStart.transform.position, craneStart.transform.rotation );
 	}
+
+	void HideGoals()
+	{
+		foreach(var s in this.segments)
+		{
+			if(!s.goal.IsSuccess)
+				s.goal.gameObject.SetActive(false);
+		}
+	}
+
 
 	IEnumerator Start()
 	{
@@ -91,6 +102,9 @@ public class Level : MonoBehaviour
 				var building = GameObject.Instantiate<Building>( segment.buildingPrefab );
 				Crane.current.AttachBuilding( building );
 				currentGoal.TargetBuilding = building;
+
+				HideGoals();
+				currentGoal.gameObject.SetActive(true);
 			}
 			else if(currentGoal.IsSuccess)
 			{
