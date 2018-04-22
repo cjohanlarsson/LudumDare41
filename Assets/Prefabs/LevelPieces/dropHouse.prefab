@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 138226268052190992}
   - component: {fileID: 65949213721500462}
   - component: {fileID: 114349906768359756}
+  - component: {fileID: 208292696314494582}
   m_Layer: 0
   m_Name: dropHouse
   m_TagString: Untagged
@@ -7060,3 +7061,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!208 &208292696314494582
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1605618372836940}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4, y: 4, z: 4}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 4, z: 0}
+  m_TimeToStationary: 0.5
