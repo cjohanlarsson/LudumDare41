@@ -9,6 +9,7 @@ public class LevelCasualties : MonoBehaviour {
     private int peopleKilled;
     [SerializeField]
     private int maximumKillable;
+    float casualtyRisk;
 
     public Text casualties;
 
@@ -21,7 +22,8 @@ public class LevelCasualties : MonoBehaviour {
 	void Update () {
 		//Debug.Log(Level.current.PeopleKilled);
         casualties.text = "Lawyers have settled "+ peopleKilled+" out of "+maximumKillable+" acceptable casualties";
-        casualties.color = new Color((peopleKilled/maximumKillable), 0f, 0f);
-        Debug.Log(peopleKilled/maximumKillable);
+        casualtyRisk = (float)peopleKilled/maximumKillable;
+        casualties.color = new Color(casualtyRisk, 0f, 0f);
+        Debug.Log(casualtyRisk);
 	}
 }

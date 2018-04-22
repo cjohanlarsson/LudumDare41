@@ -141,11 +141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodSplatters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 100002, guid: b180662a95cf4994ca39b463f127eb98, type: 3}
+  - {fileID: 100002, guid: e0fb21f6413d94349acb490f37498a1d, type: 3}
+  - {fileID: 100002, guid: 6072b8ad170cae94aadd5a995c1094b0, type: 3}
+  - {fileID: 100002, guid: 1d1a4536ad46e1c4eb43df389b28ea60, type: 3}
+  - {fileID: 100002, guid: ff9d3d343735c1e45839c0e8cfbb5622, type: 3}
 --- !u!4 &308854835
 Transform:
   m_ObjectHideFlags: 0
