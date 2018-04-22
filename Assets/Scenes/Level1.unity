@@ -1708,6 +1708,12 @@ Prefab:
       propertyPath: requiredDistToGoal
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 212270872774096434, guid: edf1faaae9031e247b96c347b811c7c8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a510eabbe067f407a86ece226cb71093,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edf1faaae9031e247b96c347b811c7c8, type: 2}
   m_IsPrefabParent: 0
