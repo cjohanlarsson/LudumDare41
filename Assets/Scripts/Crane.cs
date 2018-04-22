@@ -8,35 +8,60 @@ public class Crane : MonoBehaviour
 
 	public enum MouseControl
 	{
+		None,
 		Absolute,
 		Relative,
 		Deltas
 	}
 
+	public enum CraneControl
+	{
+		TranslateArm,
+		RotateArm
+	}
+
+	[Header("Crane Basics")]
+	[SerializeField] CraneControl craneControl;
 	[SerializeField] Rigidbody craneArm;
+	[SerializeField] Rigidbody buildingAttachment;
+
+	[Header("Crane Translate Arm")]
 	[SerializeField] float craneMaxSpeed;
 	[SerializeField] float craneSmoothTime;
-	[SerializeField] float craneMinY = -4;
-	[SerializeField] float craneMaxY = 4;
+
+	[Header("Crane Rotate Arm")]
+	[SerializeField] float craneAngularSpeed = 120f;
+	[SerializeField] float craneMaxSpeedY;
+	[SerializeField] float craneExtendSpeed;
+	[SerializeField] float craneMinAngle;
+	[SerializeField] float craneMaxAngle;
+	[SerializeField] float craneMinZ = 0f;
+	[SerializeField] float craneMaxZ = 30f;
+
+	[Header("Crane Height")]
 	[SerializeField] float craneYSpeed = 6;
 	[SerializeField] float craneYAccel = 6;
 	[SerializeField] float craneYDeccel = 6;
-	[SerializeField] float craneMouseOffset = 5f;
+	[SerializeField] float craneMinY = -4;
+	[SerializeField] float craneMaxY = 4;
 
-	[SerializeField] Rigidbody buildingAttachment;
 
+	[Header("Mouse Controls")]
 	[SerializeField] MouseControl mouseControlMode;
 	[SerializeField] float relativeMouseSpeed = 1f;
 
+	[Header("Debug Stuff")]
 	[SerializeField] Transform debugTargetCube;
 
 	Vector3 craneArmTargetPos;
 	Vector3 craneArmVelocity;
 	Vector3 prevMousePos;
+	float craneArmYVel;
 
 	private Building attachedBuilding;
 	public Building AttachedBuilding { get { return this.attachedBuilding; } }
 	float direction = 0;
+	float craneAngle = 0f;
 
 	void Awake()
 	{
@@ -72,7 +97,7 @@ public class Crane : MonoBehaviour
 			if(GetPosition( Input.mousePosition, ref targetPos))
 			{
 				this.craneArmTargetPos.x = targetPos.x;
-				this.craneArmTargetPos.z = targetPos.z - craneMouseOffset;
+				this.craneArmTargetPos.z = targetPos.z;
 			}
 		}
 		else if(mouseControlMode == MouseControl.Deltas)
@@ -81,7 +106,7 @@ public class Crane : MonoBehaviour
 			delta.y = 0f;
 			this.craneArmTargetPos += delta * relativeMouseSpeed;
 		}
-		else
+		else if(mouseControlMode == MouseControl.Relative)
 		{
 			Vector3 currPos = Vector3.zero; 
 			Vector3 prevPos = Vector3.zero;
@@ -125,17 +150,54 @@ public class Crane : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		var craneArmCurrPos = this.craneArm.transform.position;
-		craneArmCurrPos = Vector3.SmoothDamp( 
-			craneArmCurrPos, this.craneArmTargetPos, ref craneArmVelocity, craneSmoothTime, craneMaxSpeed, Time.fixedDeltaTime );
+		Transform craneParent = this.craneArm.transform.parent;
+		if(craneControl == CraneControl.TranslateArm)
+		{
+			var craneArmCurrPos = this.craneArm.transform.position;
+			craneArmCurrPos = Vector3.SmoothDamp( 
+				craneArmCurrPos, this.craneArmTargetPos, ref craneArmVelocity, craneSmoothTime, craneMaxSpeed, Time.fixedDeltaTime );
 
-		
-		this.craneArm.transform.position = craneArmCurrPos;
+			this.craneArm.transform.position = craneArmCurrPos;
+		}
+		else
+		{
+			var delta = new Vector3( Input.GetAxis("Mouse X") , 0, Input.GetAxis("Mouse Y"));
+			delta.y = 0f;
+			this.craneArmTargetPos += delta * relativeMouseSpeed;
+
+			/*var craneForward = this.craneArm.transform.forward;
+			var desiredForward = (craneArmTargetPos - this.craneArm.transform.position);
+			desiredForward.y = 0f;
+
+			craneForward = Vector3.RotateTowards( 
+				craneForward, 
+				desiredForward, 
+				craneAngularSpeed * Mathf.Deg2Rad * Time.fixedDeltaTime ,
+				10f );
+			this.craneArm.transform.forward = craneForward;*/
+
+			float deltaAng = Input.GetAxis("Mouse X") * craneAngularSpeed * Time.fixedDeltaTime;
+			craneAngle = Mathf.Clamp(craneAngle + deltaAng, craneMinAngle, craneMaxAngle);
+
+			this.craneArm.transform.parent.localEulerAngles = new Vector3(0,craneAngle,0);
+			//this.craneArm.transform.parent.Rotate( new Vector3(0f, deltaAng, 0f ) );
+
+			float deltaZ = (Input.GetAxis("Mouse Y") * craneExtendSpeed * Time.fixedDeltaTime);
+			var pos = this.craneArm.transform.localPosition;
+			pos.z = Mathf.Clamp(deltaZ + pos.z, craneMinZ, craneMaxZ);
+			this.craneArm.transform.localPosition = pos;
+
+			Vector3 craneArmCurrPos = craneParent.position;
+			craneArmCurrPos.y = Mathf.SmoothDamp( craneArmCurrPos.y, this.craneArmTargetPos.y, ref craneArmYVel, craneSmoothTime, craneMaxSpeed, Time.fixedDeltaTime );
+			craneParent.position = craneArmCurrPos;
+		}
+
 		if(Input.GetKey(KeyCode.Space) && attachedBuilding != null)
 		{
 			GameObject.Destroy(attachedBuilding.joint);
 			attachedBuilding = null;
 		}
+
 	}
 
 	public void AttachBuilding(Building building)
