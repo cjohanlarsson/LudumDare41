@@ -1040,6 +1040,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 82771012102845888, guid: d61ba188b3c55674bbf8beea9859d247,
+        type: 2}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d61ba188b3c55674bbf8beea9859d247, type: 2}
   m_IsPrefabParent: 0
@@ -1924,7 +1929,7 @@ MonoBehaviour:
   boundsMaxZ: 0
   boundsMinX: 0
   boundsMaxX: 0
-  audioMan: {fileID: 0}
+  audioMan: {fileID: 993570345}
 --- !u!1 &1465783970
 GameObject:
   m_ObjectHideFlags: 0
