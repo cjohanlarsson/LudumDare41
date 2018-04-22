@@ -8,14 +8,17 @@ public class CitizenController : MonoBehaviour {
     public float startTime;
     public float moveDuration = 5;
     public bool readyForNewTarget = true;
-    public static float XMIN = -75;
-    public static float XMAX = 75;
-    public static float ZMIN = -75;
-    public static float ZMAX = 75;
-    public static float MINMOVETIME = 4;
+    private static float XMIN = -6;
+    private static float XMAX = 6;
+    private static float ZMIN = -6;
+    private static float ZMAX = 6;
+    public static float MINMOVETIME = 3;
     public static float MAXMOVETIME = 6;
     Transform model;
     bool frozenWithFear;
+    bool doMirrorImage = false;
+    float randomX;
+    float randomZ;
 
     public Camera cam;
     public NavMeshAgent agent;
@@ -61,24 +64,34 @@ public class CitizenController : MonoBehaviour {
         frozenWithFear = true;
         GetComponent<AudioSource>().Play();
         Vector3 currentLocation = transform.position;
-        if (this.gameObject != null)
+        if (agent != null)
         {
             agent.SetDestination(currentLocation);
         }
-        model.Rotate(0, 0, -30);
+        model.Rotate(0, 0, -25);
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
         frozenWithFear = false;
-        model.Rotate(0, 0, 30);
+        model.Rotate(0, 0, 25);
 	}
 
 	public Vector3 NewTarget()
     {
-        float randomX = Random.Range(XMIN, XMAX);
-        float randomZ = Random.Range(ZMIN, ZMAX);
+        if(!doMirrorImage)
+        {
+            randomX = Random.Range(XMIN, XMAX);
+            randomZ = Random.Range(ZMIN, ZMAX);
+            doMirrorImage = !doMirrorImage;
+        }
+        else
+        {
+            randomX = -randomX;
+            randomZ = -randomZ;
+            doMirrorImage = !doMirrorImage;
+        }
         moveDuration = Random.Range(MINMOVETIME, MAXMOVETIME);
-        return new Vector3(randomX, 0, randomZ);
+        return new Vector3(randomX, -5, randomZ);
     }
 }

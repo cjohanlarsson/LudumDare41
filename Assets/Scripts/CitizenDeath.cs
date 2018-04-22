@@ -9,15 +9,15 @@ public class CitizenDeath : MonoBehaviour {
 
 	private void Start()
 	{
-        squish = Camera.main.GetComponent<AudioSource>();
-        bloodSplatters = GameObject.Find("Blood").GetComponent<Blood>().bloodSplatters;
+        squish = GameObject.Find("Blood&Squish").GetComponent<AudioSource>();
+        bloodSplatters = GameObject.Find("Blood&Squish").GetComponent<Blood>().bloodSplatters;
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
         squish.Play();
-        Instantiate(bloodSplatters[Random.Range(0,bloodSplatters.Length)], transform.position, Quaternion.identity);
-        //Level.current.RegisterPersonKilled();
         Destroy(transform.root.gameObject);
-	}
+        Level.current.RegisterPersonKilled();
+        Instantiate(bloodSplatters[Random.Range(0,bloodSplatters.Length)], transform.position, Quaternion.identity);
+    }
 }
