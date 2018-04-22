@@ -97,6 +97,7 @@ public class Level : MonoBehaviour
 				Crane.current.DetachBuilding( currentGoal.TargetBuilding );
 				if(currentIndex == (segments.Count-1))
 				{
+					yield return new WaitForSeconds(3f);
 					CurrentState = State.Won;
 				}
 				else
