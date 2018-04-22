@@ -1517,6 +1517,55 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1645925884389242, guid: d4e090647498de34182b341ba5f4f003, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778462071496202, guid: d4e090647498de34182b341ba5f4f003,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4e090647498de34182b341ba5f4f003, type: 2}
   m_IsPrefabParent: 0
