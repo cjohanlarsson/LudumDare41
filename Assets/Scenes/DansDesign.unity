@@ -113,6 +113,57 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &433323374
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -58.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122984614943448, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_Name
+      value: bluejean_male (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195516178233708398, guid: b6a8645e1285d45948e5fb6beae2d930,
+        type: 2}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &504395724
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +507,57 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1001 &814315230
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544099142267378, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1122984614943448, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+      propertyPath: m_Name
+      value: bluejean_male (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 195516178233708398, guid: b6a8645e1285d45948e5fb6beae2d930,
+        type: 2}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b6a8645e1285d45948e5fb6beae2d930, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &858735557
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,7 +570,7 @@ GameObject:
   - component: {fileID: 858735559}
   - component: {fileID: 858735558}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,7 +696,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 3.3333333
+  m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: fa0e1688868854e08abb4765a5e6ec8d, type: 2}
 --- !u!1001 &1641561583
