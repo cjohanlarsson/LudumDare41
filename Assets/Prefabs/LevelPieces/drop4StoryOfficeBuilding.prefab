@@ -297,6 +297,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1685509100713824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4551710091319962}
+  m_Layer: 0
+  m_Name: VictoryComparePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1750069883899484
 GameObject:
   m_ObjectHideFlags: 1
@@ -407,6 +422,7 @@ Transform:
   - {fileID: 4437913634414082}
   - {fileID: 4181251412719324}
   - {fileID: 4331313581583604}
+  - {fileID: 4551710091319962}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -579,6 +595,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4347291005239618}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4551710091319962
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1685509100713824}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -32.69, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 4166091613634284}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4593387086725938
 Transform:
@@ -955,7 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed7a98630c0b4caca5ffff923fe1b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePosition: {fileID: 4166091613634284}
+  basePosition: {fileID: 4551710091319962}
   joint: {fileID: 138117031288144166}
 --- !u!114 &114523424058816326
 MonoBehaviour:
