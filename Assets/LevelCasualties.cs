@@ -22,5 +22,6 @@ public class LevelCasualties : MonoBehaviour {
 		//Debug.Log(Level.current.PeopleKilled);
         casualties.text = "Lawyers have settled "+ peopleKilled+" out of "+maximumKillable+" acceptable casualties";
         casualties.color = new Color((peopleKilled/maximumKillable), 0f, 0f);
+        Debug.Log(peopleKilled/maximumKillable);
 	}
 }
