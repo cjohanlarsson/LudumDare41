@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
 {
 	[SerializeField] private Button resetBtn;
 	[SerializeField] private GameObject winScreen;
+	[SerializeField] private GameObject lossScreen;
     [SerializeField] private Button nextLvlBtn;
 
     void Awake()
@@ -37,6 +38,7 @@ public class UI : MonoBehaviour
 		if(Level.current != null)
 		{
 			winScreen.SetActive( Level.current.CurrentState == Level.State.Won );
+			lossScreen.SetActive( Level.current.CurrentState == Level.State.Lost );
 		}
 	}
 

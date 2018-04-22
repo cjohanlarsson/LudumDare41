@@ -45,6 +45,7 @@ public class Level : MonoBehaviour
 
     private int buildingsDestroyed = 0;
     private int peopleKilled = 0;
+    private float currentDetachStartedAt = -6666f;
 
 	public State CurrentState { get; set; }
 
@@ -94,6 +95,7 @@ public class Level : MonoBehaviour
 				var segment = segments[currentIndex];
 				currentGoal = segment.goal;
 
+
 				//Crane.current.ResetCrane();
 				ResetCrane();
 
@@ -106,24 +108,29 @@ public class Level : MonoBehaviour
 				HideGoals();
 				currentGoal.gameObject.SetActive(true);
 			}
-			else if(currentGoal.IsSuccess)
+			else
 			{
-				Crane.current.DetachBuilding( currentGoal.TargetBuilding );
-				if(currentIndex == (segments.Count-1))
+				if(currentGoal.IsSuccess)
 				{
-					yield return new WaitForSeconds(3f);
-					CurrentState = State.Won;
+					Crane.current.DetachBuilding( currentGoal.TargetBuilding );
+					if(currentIndex == (segments.Count-1))
+					{
+						yield return new WaitForSeconds(3f);
+						CurrentState = State.Won;
+					}
+					else
+					{
+						currentGoal = null;
+						currentIndex++;
+					}
 				}
-				else
+				else if(Crane.current.AttachedBuilding == null && Crane.current.TimeSinceDetached > 5f)
 				{
-					currentGoal = null;
-					currentIndex++;
+					CurrentState = State.Lost;
 				}
 			}
 			yield return null;
 		}
-
-		CurrentState = State.Won;
 	}
 
     public void RegisterBuildingDestroyed()
