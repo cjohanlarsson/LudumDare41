@@ -280,6 +280,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: becb17ae2eecbcb4f94d9c5fbf043864, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &737576824 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1446086297163490, guid: bdaa6c2aee6401040bcf7cd9152c757b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1198932906}
 --- !u!1001 &893073700
 Prefab:
   m_ObjectHideFlags: 0
@@ -493,6 +498,11 @@ Prefab:
       propertyPath: m_Size.z
       value: 11.83
       objectReference: {fileID: 0}
+    - target: {fileID: 114490170961926590, guid: a8415ebfa9c93754c879ba41fb7e4888,
+        type: 2}
+      propertyPath: mouseControlMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65070689217832724, guid: a8415ebfa9c93754c879ba41fb7e4888, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a8415ebfa9c93754c879ba41fb7e4888, type: 2}
@@ -593,6 +603,11 @@ Prefab:
       propertyPath: m_Name
       value: house (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114429272784443584, guid: bdaa6c2aee6401040bcf7cd9152c757b,
+        type: 2}
+      propertyPath: fireChild
+      value: 
+      objectReference: {fileID: 737576824}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bdaa6c2aee6401040bcf7cd9152c757b, type: 2}
   m_IsPrefabParent: 0
@@ -697,6 +712,10 @@ Prefab:
     - target: {fileID: 4158190996091028, guid: df361f3f0de2f584fb8dae9d370198a8, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640130778198452, guid: df361f3f0de2f584fb8dae9d370198a8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df361f3f0de2f584fb8dae9d370198a8, type: 2}
@@ -843,6 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324924e5647761b45a8bea7c82807fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireChild: {fileID: 0}
 --- !u!4 &1568400161 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4973514136264108, guid: a8415ebfa9c93754c879ba41fb7e4888,
