@@ -63,6 +63,8 @@ public class Crane : MonoBehaviour
 	float direction = 0;
 	float craneAngle = 0f;
 
+	bool craneReady = false;
+
 	void Awake()
 	{
 		current = this;
@@ -72,6 +74,7 @@ public class Crane : MonoBehaviour
 	{
 		prevMousePos = Input.mousePosition;
 		this.craneArmTargetPos = this.craneArm.transform.position;
+		StartCoroutine(MakeUnreadyFor(2));
 	}
 
 	bool GetPosition( Vector3 screenPos, ref Vector3 pos )
@@ -88,6 +91,9 @@ public class Crane : MonoBehaviour
 
 	void Update()
 	{
+		if(!craneReady)
+			return;
+
 		var view = Camera.main.ScreenToViewportPoint(Input.mousePosition);
  		var mouseInside = !(view.x < 0 || view.x > 1 || view.y < 0 || view.y > 1);
 
@@ -150,6 +156,9 @@ public class Crane : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+		if(!craneReady)
+			return;
+
 		Transform craneParent = this.craneArm.transform.parent;
 		if(craneControl == CraneControl.TranslateArm)
 		{
@@ -194,17 +203,47 @@ public class Crane : MonoBehaviour
 
 		if(Input.GetKey(KeyCode.Space) && attachedBuilding != null)
 		{
-			GameObject.Destroy(attachedBuilding.joint);
-			attachedBuilding = null;
+			DetachBuilding(attachedBuilding);
 		}
 
 	}
+
+	IEnumerator MakeUnreadyFor(float secs)
+	{
+		craneReady = false;
+		yield return new WaitForSeconds(secs);
+		craneReady = true;
+	}
+
+	/*public void ResetCrane()
+	{
+		StartCoroutine(MakeUnreadyFor(2));
+
+		// reset crane
+		this.craneArm.transform.localPosition = origCrameArmLocalPos;
+		this.craneArm.transform.parent.localPosition = Vector3.zero;
+		this.craneArm.transform.parent.localRotation = Quaternion.identity;
+		craneAngle = 0f;
+
+		craneArmTargetPos = this.craneArm.transform.position;
+		craneArmVelocity = Vector3.zero;
+		craneArmYVel = 0f;
+	}*/
 
 	public void AttachBuilding(Building building)
 	{
 		attachedBuilding = building;
 		building.transform.position = buildingAttachment.transform.position;
 		building.joint.connectedBody = buildingAttachment;
+	}
+
+	public void DetachBuilding(Building building)
+	{
+		if(attachedBuilding == building)
+		{
+			GameObject.Destroy(attachedBuilding.joint);
+			attachedBuilding = null;
+		}
 	}
 
 	/*

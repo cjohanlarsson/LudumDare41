@@ -21,6 +21,8 @@ public class Level : MonoBehaviour
 
 	public static Level current;
 
+	[SerializeField] Crane cranePrefab;
+	[SerializeField] Transform craneStart;
 	[SerializeField] private List<Segment> segments;
 	[SerializeField] float boundsMinZ;
 	[SerializeField] float boundsMaxZ;
@@ -55,7 +57,27 @@ public class Level : MonoBehaviour
 	void Awake()
 	{
 		current = this;
+		HideGoals();
 	}
+
+	void ResetCrane()
+	{
+		if(Crane.current != null)
+		{
+			GameObject.Destroy( Crane.current.gameObject );
+		}
+		Crane.current = GameObject.Instantiate( cranePrefab , craneStart.transform.position, craneStart.transform.rotation );
+	}
+
+	void HideGoals()
+	{
+		foreach(var s in this.segments)
+		{
+			if(!s.goal.IsSuccess)
+				s.goal.gameObject.SetActive(false);
+		}
+	}
+
 
 	IEnumerator Start()
 	{
@@ -68,16 +90,28 @@ public class Level : MonoBehaviour
 		{
 			if(currentGoal == null)
 			{
+				
 				var segment = segments[currentIndex];
 				currentGoal = segment.goal;
+
+				//Crane.current.ResetCrane();
+				ResetCrane();
+
+				yield return new WaitForSeconds(1f);
+
 				var building = GameObject.Instantiate<Building>( segment.buildingPrefab );
 				Crane.current.AttachBuilding( building );
 				currentGoal.TargetBuilding = building;
+
+				HideGoals();
+				currentGoal.gameObject.SetActive(true);
 			}
 			else if(currentGoal.IsSuccess)
 			{
+				Crane.current.DetachBuilding( currentGoal.TargetBuilding );
 				if(currentIndex == (segments.Count-1))
 				{
+					yield return new WaitForSeconds(3f);
 					CurrentState = State.Won;
 				}
 				else
