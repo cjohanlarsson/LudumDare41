@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5143d89803a8451aaa555e3901aed83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshData: {fileID: 23800000, guid: 3e09ed4e5dc324a1dbd014ad74ab4153, type: 2}
+  navMeshData: {fileID: 0}
 --- !u!114 &114518517229158380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,4 +80,4 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 29eb372d0046c4a92a43cefeef4d382f, type: 2}
+  m_NavMeshData: {fileID: 0}
