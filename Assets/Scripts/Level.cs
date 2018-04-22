@@ -22,6 +22,20 @@ public class Level : MonoBehaviour
 	public static Level current;
 
 	[SerializeField] private List<Segment> segments;
+	[SerializeField] float boundsMinZ;
+	[SerializeField] float boundsMaxZ;
+	[SerializeField] float boundsMinX;
+	[SerializeField] float boundsMaxX;
+
+	public Vector3 GetMinBounds()
+	{
+		return new Vector3( boundsMinX, 0 , boundsMinZ );
+	}
+
+	public Vector3 GetMaxBounds()
+	{
+		return new Vector3( boundsMaxX, 0 , boundsMaxZ );
+	}
 
 	private LevelGoal currentGoal;
 	private Building currentBuilding;
