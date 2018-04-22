@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BuildingHit : MonoBehaviour {
 
-    private float BREAK_THRESHOLD = 2f;
+    public GameObject fireChild;
+    private float BREAK_THRESHOLD = 4f;
     private bool destroyed = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -12,7 +13,7 @@ public class BuildingHit : MonoBehaviour {
         if(!destroyed && collision.impulse.magnitude > BREAK_THRESHOLD)
         {
             Level.current.RegisterBuildingDestroyed();
-            Debug.Log("Trigger Destroy");
+            fireChild.SetActive(true);
         }
     }
 }
