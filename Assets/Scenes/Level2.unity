@@ -902,6 +902,16 @@ Prefab:
       propertyPath: segments.Array.data[2].goal
       value: 
       objectReference: {fileID: 2100377603}
+    - target: {fileID: 108026621949545510, guid: a8415ebfa9c93754c879ba41fb7e4888,
+        type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 108026621949545510, guid: a8415ebfa9c93754c879ba41fb7e4888,
+        type: 2}
+      propertyPath: m_Shadows.m_Strength
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65070689217832724, guid: a8415ebfa9c93754c879ba41fb7e4888, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a8415ebfa9c93754c879ba41fb7e4888, type: 2}
