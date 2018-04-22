@@ -18,7 +18,7 @@ public class LevelGoal : MonoBehaviour
 		{
 			return attachedBuilding != null && 
 				attachedBuilding.gameObject != null &&
-				Vector3.Angle(Vector3.up, attachedBuilding.transform.up) < 10f &&
+				/* Vector3.Angle(Vector3.up, attachedBuilding.transform.up) < 10f && */
 				Vector3.Distance( attachedBuilding.BasePosition, this.transform.position ) < requiredDistToGoal ;
 		}
 	}
