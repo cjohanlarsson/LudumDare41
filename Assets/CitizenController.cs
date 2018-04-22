@@ -12,6 +12,8 @@ public class CitizenController : MonoBehaviour {
     public static float XMAX = 75;
     public static float ZMIN = -75;
     public static float ZMAX = 75;
+    public static float MINMOVETIME = 4;
+    public static float MAXMOVETIME = 6;
     Transform model;
     bool frozenWithFear;
 
@@ -73,6 +75,7 @@ public class CitizenController : MonoBehaviour {
     {
         float randomX = Random.Range(XMIN, XMAX);
         float randomZ = Random.Range(ZMIN, ZMAX);
+        moveDuration = Random.Range(MINMOVETIME, MAXMOVETIME);
         return new Vector3(randomX, 0, randomZ);
     }
 }
