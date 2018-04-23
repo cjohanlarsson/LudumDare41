@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 82591210102571884}
-  craneLetGoSfx: {fileID: 8300000, guid: f97d8ee0a9dabca4c9307c1c6951bb31, type: 3}
+  craneLetGoSfx: {fileID: 8300000, guid: 9e6bfdaa9e518614388e9b88ab9c14d2, type: 3}
   crashSfx: {fileID: 8300000, guid: e1317abfde93b5c46810967bdcd0003b, type: 3}
   goodLandingSfx: {fileID: 8300000, guid: 4892e7dbb015fcd419191733f7b5398b, type: 3}
   splashSfx: {fileID: 8300000, guid: 4cf53aff1ada6ab40a45b4d8802ec853, type: 3}
