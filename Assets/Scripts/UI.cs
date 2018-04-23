@@ -11,6 +11,9 @@ public class UI : MonoBehaviour
 	[SerializeField] private GameObject winScreen;
 	[SerializeField] private GameObject lossScreen;
     [SerializeField] private Button nextLvlBtn;
+    [SerializeField] private GameObject PauseMenu;
+
+    private bool paused = false;
 
     void Awake()
     {
@@ -26,11 +29,20 @@ public class UI : MonoBehaviour
         {
             nextLvlBtn.gameObject.SetActive(false);
         }
+
+        PauseMenu.SetActive(false);
 	}
 
     public void NextLevel()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GoToLevel(int lvl)
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(lvl);
     }
 
 	void Update()
@@ -41,5 +53,16 @@ public class UI : MonoBehaviour
 			lossScreen.SetActive( Level.current.CurrentState == Level.State.Lost );
 		}
 	}
+
+    public void TogglePause()
+    {
+        paused = !paused;
+        PauseMenu.SetActive(paused);
+        if (paused)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+
+    }
 
 }
