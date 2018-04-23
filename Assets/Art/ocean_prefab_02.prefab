@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33025838765062174}
   - component: {fileID: 23031975581719858}
   - component: {fileID: 114004825839706918}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ocean_prefab_part1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4429232945293462}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ocean_prefab_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33024374437655948}
   - component: {fileID: 23405772078817468}
   - component: {fileID: 114836687004005914}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ocean_prefab_part2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
