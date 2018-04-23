@@ -576,7 +576,7 @@ MonoBehaviour:
   craneLetGoSfx: {fileID: 8300000, guid: f97d8ee0a9dabca4c9307c1c6951bb31, type: 3}
   crashSfx: {fileID: 8300000, guid: e1317abfde93b5c46810967bdcd0003b, type: 3}
   goodLandingSfx: {fileID: 8300000, guid: 4892e7dbb015fcd419191733f7b5398b, type: 3}
-  splashSfx: {fileID: 8300000, guid: 2574589d1c9ce5a439651a36fad9713a, type: 3}
+  splashSfx: {fileID: 8300000, guid: 4cf53aff1ada6ab40a45b4d8802ec853, type: 3}
   craneMoveSource: {fileID: 82428963972680118}
   craneLowerSource: {fileID: 82458536354666732}
   fireSource: {fileID: 82480098545120266}
