@@ -3356,12 +3356,14 @@ MonoBehaviour:
   craneMaxSpeed: 20
   craneSmoothTime: 0.2
   craneAngularSpeed: 120
-  craneMaxSpeedY: 15
+  craneMaxSpeedY: 10
   craneExtendSpeed: 30
+  craneMaxExtendSpeedPerSecond: 15
   craneMinAngle: -65
   craneMaxAngle: 65
   craneMinZ: 3
   craneMaxZ: 15
+  craneMaxRotatePerSecond: 60
   craneYSpeed: 20
   craneYAccel: 10
   craneYDeccel: 20
