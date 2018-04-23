@@ -24,7 +24,7 @@ public class UI : MonoBehaviour
             });
         }
 
-        if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
+        if (SceneManager.GetActiveScene().buildIndex > 2)
         {
             nextLvlBtn.gameObject.SetActive(false);
         }
