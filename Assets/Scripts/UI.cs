@@ -52,7 +52,7 @@ public class UI : MonoBehaviour
 
 	void Update()
 	{
-        if(Input.GetMouseButtonDown(0)) //Reset the cursor lockstate whenever player clicks
+        if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) //Reset the cursor lockstate whenever player clicks
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
