@@ -33,10 +33,12 @@ public class Crane : MonoBehaviour
 	[SerializeField] float craneAngularSpeed = 120f;
 	[SerializeField] float craneMaxSpeedY;
 	[SerializeField] float craneExtendSpeed;
+    [SerializeField] float craneMaxExtendSpeedPerSecond = 10f;
 	[SerializeField] float craneMinAngle;
 	[SerializeField] float craneMaxAngle;
 	[SerializeField] float craneMinZ = 0f;
 	[SerializeField] float craneMaxZ = 30f;
+    [SerializeField] float craneMaxRotatePerSecond = 150f;
 
 	[Header("Crane Height")]
 	[SerializeField] float craneYSpeed = 6;
@@ -195,13 +197,13 @@ public class Crane : MonoBehaviour
 				10f );
 			this.craneArm.transform.forward = craneForward;*/
 
-			float deltaAng = Input.GetAxis("Mouse X") * craneAngularSpeed * Time.fixedDeltaTime;
+			float deltaAng = Mathf.Clamp(Input.GetAxis("Mouse X") * craneAngularSpeed * Time.fixedDeltaTime, -craneMaxRotatePerSecond * Time.fixedDeltaTime, craneMaxRotatePerSecond * Time.fixedDeltaTime);
 			craneAngle = Mathf.Clamp(craneAngle + deltaAng, craneMinAngle, craneMaxAngle);
 
 			this.craneArm.transform.parent.localEulerAngles = new Vector3(0,craneAngle,0);
 			//this.craneArm.transform.parent.Rotate( new Vector3(0f, deltaAng, 0f ) );
 
-			float deltaZ = (Input.GetAxis("Mouse Y") * craneExtendSpeed * Time.fixedDeltaTime);
+			float deltaZ = Mathf.Clamp(Input.GetAxis("Mouse Y") * craneExtendSpeed * Time.fixedDeltaTime, -craneMaxExtendSpeedPerSecond * Time.fixedDeltaTime, craneMaxExtendSpeedPerSecond * Time.fixedDeltaTime);
 			var pos = this.craneArm.transform.localPosition;
 			pos.z = Mathf.Clamp(deltaZ + pos.z, craneMinZ, craneMaxZ);
 			this.craneArm.transform.localPosition = pos;

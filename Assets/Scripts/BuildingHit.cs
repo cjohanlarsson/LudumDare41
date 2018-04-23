@@ -32,5 +32,6 @@ public class BuildingHit : MonoBehaviour {
         destroyed = true;
         Level.current.RegisterBuildingDestroyed();
         fireChild.SetActive(true);
+        Level.current.audioMan.TurnOnFire();
     }
 }

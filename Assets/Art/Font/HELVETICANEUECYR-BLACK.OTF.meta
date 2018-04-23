@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: c0053811f05aa124d90ae57e1d91f86c
+timeCreated: 1524465372
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: HelveticaNeueCyr
+  fontNames:
+  - HelveticaNeueCyr
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6dc0a921427b7c14283b829b139b781f, type: 3}
+  - {fileID: 12800000, guid: 4b4d4dcd3456dc847959fdb17e03fc71, type: 3}
+  - {fileID: 12800000, guid: 0e6d405edbb17734c8e99034c24b2732, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

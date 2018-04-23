@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour {
     //Crane sfx come from always looping crane sounds that are turned on/off by changing volume
     [SerializeField] AudioSource craneMoveSource;
     [SerializeField] AudioSource craneLowerSource;
+    [SerializeField] AudioSource fireSource;
 
     public void ToggleCraneMoveSound(bool on)
     {
@@ -46,5 +47,10 @@ public class AudioManager : MonoBehaviour {
     public void PlaySplash()
     {
         sfxSource.PlayOneShot(splashSfx);
+    }
+
+    public void TurnOnFire()
+    {
+        fireSource.volume = 1;
     }
 }
