@@ -272,6 +272,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114555854648040298, guid: 3f50cd094c66d455eb8d17ff1d9a2f17,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Press ''Enter''
+
+        for Next Job'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697769234953850, guid: 3f50cd094c66d455eb8d17ff1d9a2f17, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114657455246022506, guid: 3f50cd094c66d455eb8d17ff1d9a2f17,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Press ''Enter''
+
+        for Next Job'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f50cd094c66d455eb8d17ff1d9a2f17, type: 2}
   m_IsPrefabParent: 0
@@ -818,10 +836,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 82956237582451488, guid: d61ba188b3c55674bbf8beea9859d247, type: 2}
-    - {fileID: 82944839593093582, guid: d61ba188b3c55674bbf8beea9859d247, type: 2}
-    - {fileID: 82405753458079042, guid: d61ba188b3c55674bbf8beea9859d247, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d61ba188b3c55674bbf8beea9859d247, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &993570345 stripped

@@ -17,7 +17,6 @@ public class UI : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("We wake up");
         if (resetBtn != null)
         {
             resetBtn.onClick.AddListener(() => {
@@ -45,6 +44,12 @@ public class UI : MonoBehaviour
         SceneManager.LoadScene(lvl);
     }
 
+    void RestartLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 	void Update()
 	{
         if(Input.GetMouseButtonDown(0)) //Reset the cursor lockstate whenever player clicks
@@ -62,22 +67,24 @@ public class UI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
             TogglePause();
-        if(Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (Input.GetKeyDown(KeyCode.R))
+            RestartLevel();
+        if (nextLvlBtn.gameObject.activeInHierarchy && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)))
+            NextLevel();
 
         if (paused) //Keyboard level select when paused
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
             {
-                SceneManager.LoadScene(1);
+                GoToLevel(1);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
             {
-                SceneManager.LoadScene(2);
+                GoToLevel(2);
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
             {
-                SceneManager.LoadScene(3);
+                GoToLevel(3);
             }
         }
 	}

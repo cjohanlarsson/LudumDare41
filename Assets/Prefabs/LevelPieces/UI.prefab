@@ -1623,7 +1623,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Job
+  m_Text: 'Press ''Enter''
+
+    for Next Job'
 --- !u!114 &114582447008698754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1900,7 +1902,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Job
+  m_Text: 'Press ''Enter''
+
+    for Next Job'
 --- !u!114 &114687832005122320
 MonoBehaviour:
   m_ObjectHideFlags: 1
