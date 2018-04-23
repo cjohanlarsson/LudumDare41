@@ -272,24 +272,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114555854648040298, guid: 3f50cd094c66d455eb8d17ff1d9a2f17,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Press ''Enter''
-
-        for Next Job'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697769234953850, guid: 3f50cd094c66d455eb8d17ff1d9a2f17, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114657455246022506, guid: 3f50cd094c66d455eb8d17ff1d9a2f17,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Press ''Enter''
-
-        for Next Job'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f50cd094c66d455eb8d17ff1d9a2f17, type: 2}
   m_IsPrefabParent: 0
@@ -1586,69 +1568,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114856454166572314, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: peopleKilled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114272353553394626, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1889875799417506, guid: d4e090647498de34182b341ba5f4f003, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1645925884389242, guid: d4e090647498de34182b341ba5f4f003, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224519726958267278, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114778462071496202, guid: d4e090647498de34182b341ba5f4f003,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4e090647498de34182b341ba5f4f003, type: 2}
