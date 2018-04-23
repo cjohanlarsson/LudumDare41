@@ -158,7 +158,7 @@ CGINCLUDE
 		#ifdef WATER_EDGEBLEND_ON
 			half depth = SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPos));
 			depth = LinearEyeDepth(depth);
-			edgeBlendFactors = saturate(_InvFadeParemeter * (depth-i.screenPos.w));
+			edgeBlendFactors = saturate(_InvFadeParemeter * (depth-i.screenPos.z));
 			edgeBlendFactors.y = 1.0-edgeBlendFactors.y;
 		#endif
 		

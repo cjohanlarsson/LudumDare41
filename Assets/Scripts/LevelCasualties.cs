@@ -39,9 +39,9 @@ public class LevelCasualties : MonoBehaviour
 		if(pk != peopleKilled)
 		{
 	        peopleKilled = pk;
-	        casualties.text = "Lawyers have settled "+ peopleKilled+" out of "+maximumKillable+" acceptable casualties";
+	        casualties.text = "Lawyers have settled \n"+ peopleKilled+" out of "+maximumKillable+ "\n" + "acceptable casualties";
 	        casualtyRisk = (float)peopleKilled/maximumKillable;
-	        casualties.color = new Color(casualtyRisk, 0f, 0f);
+	        casualties.color = new Color((casualtyRisk+.2f), .2f, .2f);
         }
         //Debug.Log(casualtyRisk);
 	}
