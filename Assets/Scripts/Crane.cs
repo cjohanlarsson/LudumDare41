@@ -74,6 +74,12 @@ public class Crane : MonoBehaviour
 		current = this;
 	}
 
+	void OnDestroy()
+	{
+		if(current == this)
+			current = null;
+	}
+
 	void Start()
 	{
 		prevMousePos = Input.mousePosition;

@@ -24,7 +24,8 @@ public class LevelCasualties : MonoBehaviour
     }
 
     void OnDestroy() {
-		current = null;
+    	if(current == this)
+			current = null;
     }
 
 	// Use this for initialization

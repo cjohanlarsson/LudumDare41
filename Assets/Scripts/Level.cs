@@ -63,7 +63,8 @@ public class Level : MonoBehaviour
 	}
 
 	void OnDestroy() {
-		current = null;
+		if(current == this)
+			current = null;
     }
 
 	void ResetCrane()
@@ -72,7 +73,7 @@ public class Level : MonoBehaviour
 		{
 			GameObject.Destroy( Crane.current.gameObject );
 		}
-		Crane.current = GameObject.Instantiate( cranePrefab , craneStart.transform.position, craneStart.transform.rotation );
+		GameObject.Instantiate( cranePrefab , craneStart.transform.position, craneStart.transform.rotation );
 	}
 
 	void HideGoals()
@@ -94,6 +95,7 @@ public class Level : MonoBehaviour
 
 		while(CurrentState == State.InProgress)
 		{
+			
 			if(LevelCasualties.current != null && LevelCasualties.current.TooManyCasualties)
 			{
 				CurrentState = State.Lost;
